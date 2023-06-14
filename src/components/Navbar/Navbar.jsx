@@ -18,8 +18,9 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 const pages = [
   { path: "/yurts", title: "Юрты" },
-  { path: "/Contacts", title: "Контакты" },
-  { path: "/AboutUs", title: "О нас" },
+  { path: "/contacts", title: "Контакты" },
+  { path: "/aboutUs", title: "О нас" },
+  { path: "/admin", title: "Админ" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
