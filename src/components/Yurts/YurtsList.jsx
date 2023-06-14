@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import YurtsCard from "./YurtsCard";
 import { Box } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { getYurts } from "../../store/yurts/yurtsActions";
 
 const YurtsList = () => {
+  const { yurts } = useSelector((state) => state.yurts);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getYurts());
+  }, []);
+  console.log(yurts);
   return (
     <>
       <Box
@@ -13,7 +22,9 @@ const YurtsList = () => {
           marginTop: "20px",
         }}
       >
-        <YurtsCard />
+        {yurts?.map((item) => (
+          <YurtsCard item={item} />
+        ))}
       </Box>
     </>
   );

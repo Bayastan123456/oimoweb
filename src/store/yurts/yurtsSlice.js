@@ -7,7 +7,12 @@ const initialState = {
 export const yurtsSlice = createSlice({
   name: "@yurts",
   initialState,
-  reducers: {},
+  reducers: {
+    setYurts(state, action) {
+      state.yurts = action.payload;
+    },
+  },
 });
 
 export const yurtsReducer = yurtsSlice.reducer;
+export const { setYurts } = yurtsSlice.actions;
