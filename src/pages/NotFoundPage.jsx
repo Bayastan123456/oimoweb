@@ -19,8 +19,9 @@ export default function SimpleLGQuery() {
         position: "absolute",
         left: "0",
         right: "0",
-        top: "0",
+        top: "64px",
         bottom: "0",
+        textAlign: "center",
       }}
     >
       <Typography
@@ -30,7 +31,7 @@ export default function SimpleLGQuery() {
           fontSize: `125px`,
           fontFamily: "Arial",
           fontWeight: "700",
-          marginLeft: "40%",
+          marginTop: "10%",
         }}
       >
         404
@@ -42,7 +43,6 @@ export default function SimpleLGQuery() {
           fontSize: `40px`,
           fontFamily: "Arial",
           fontWeight: "600",
-          marginLeft: "15%",
         }}
       >
         Извините, но запрошенная вами страница не найдена
@@ -57,9 +57,8 @@ export default function SimpleLGQuery() {
           width: `175px`,
           backgroundColor: "grey",
           transition: "0.6s",
-          fontFamily: "ubuntu",
-          fontWeight: "400",
-          marginLeft: "41%",
+          fontFamily: "arial",
+          fontWeight: "600",
         }}
       >
         На главную
