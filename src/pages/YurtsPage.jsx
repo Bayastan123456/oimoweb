@@ -1,11 +1,12 @@
 import React from "react";
 import YurtsList from "../components/Yurts/YurtsList";
+import { Box } from "@mui/material";
 
 const YurtsPage = () => {
   return (
-    <div>
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
       <YurtsList />
-    </div>
+    </Box>
   );
 };
 
