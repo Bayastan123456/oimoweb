@@ -4,6 +4,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import YurtsPage from "../pages/YurtsPage";
 import { Route, Routes } from "react-router-dom";
 import AdminPage from "../pages/AdminPage";
+import YurtsDetails from "../components/Yurts/YurtsDetails";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -26,6 +27,11 @@ const MainRoutes = () => {
       link: "/admin",
       element: <AdminPage />,
       id: 4,
+    },
+    {
+      link: "/details/:id",
+      element: <YurtsDetails />,
+      id: 5,
     },
   ];
 

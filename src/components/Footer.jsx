@@ -5,10 +5,10 @@ const Footer = () => {
     <footer
       style={{
         backgroundColor: "#FF0000",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        position: "absolute",
+        // bottom: 0,
+        // left: 0,
+        // right: 0,
+        // position: "absolute",
         flexWrap: "wrap",
         boxShadow: "0px -4px 10px rgba(0, 0, 0, 0.2)",
       }}
