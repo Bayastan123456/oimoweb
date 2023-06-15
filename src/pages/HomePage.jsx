@@ -1,16 +1,23 @@
 import React from "react";
 import { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/effect-fade";
 
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
-import { Box, Button, Typography } from "@mui/material";
+import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
+import { Box, Button, CardMedia, Typography } from "@mui/material";
+import YurtsList from "../components/Yurts/YurtsList";
+import WavesIcon from "@mui/icons-material/Waves";
+import PetsIcon from "@mui/icons-material/Pets";
+import LocalFloristIcon from "@mui/icons-material/LocalFlorist";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import GasMeterIcon from "@mui/icons-material/GasMeter";
+import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
+import CarRepairIcon from "@mui/icons-material/CarRepair";
+import MicrowaveIcon from "@mui/icons-material/Microwave";
 
 const HomePage = () => {
   const progressCircle = useRef(null);
@@ -20,19 +27,20 @@ const HomePage = () => {
     progressContent.current.textContent = `${Math.ceil(time / 2000)}s`;
   };
   return (
-    <>
+    <Box color="white" sx={{ fontFamily: "'PT Serif', serif" }}>
       <Swiper
-        spaceBetween={30}
+        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        spaceBetween={5}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 10000  ,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 10000,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        effect={"fade"}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
@@ -53,14 +61,20 @@ const HomePage = () => {
             }}
           >
             <Typography
-              variant="h1"
-              sx={{ color: "white", boxShadow: "5px 10px 10px black" }}
+              sx={{
+                color: "white",
+                boxShadow: "5px 10px 10px black",
+                fontSize: "60px",
+                fontStyle: "italic",
+              }}
+              className="fontFamilySItalic"
             >
               Добро пожаловать!!!
             </Typography>
             <Button
               variant="outlined"
               sx={{ marginTop: "50px", color: "white", backgroundColor: "red" }}
+              className="fontFamilyS"
             >
               Заказать
             </Button>
@@ -81,7 +95,18 @@ const HomePage = () => {
               justifyContent: "center",
               flexDirection: "column",
             }}
-          ></Box>
+          >
+            <Typography
+              variant="h2"
+              sx={{
+                boxShadow: "10px 10px 10px white",
+                ":hover": { color: "white" },
+              }}
+              className="fontFamilySItalic"
+            >
+              Yurt Camp Beltam (Seaside) <br /> Иссык-Кульская область, Киргизия
+            </Typography>
+          </Box>
         </SwiperSlide>
         <SwiperSlide>
           <Box
@@ -107,7 +132,183 @@ const HomePage = () => {
           <span ref={progressContent}></span>
         </div>
       </Swiper>
-    </>
+      <Box
+        sx={{
+          backgroundImage:
+            "url(https://sneg.top/uploads/posts/2023-03/1678448462_sneg-top-p-gori-kirgizii-oboi-instagram-3.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
+          backgroundPosition: "center",
+          textAlign: "center",
+          width: "100%",
+        }}
+      >
+        <Typography
+          variant="h3"
+          color="white"
+          sx={{ padding: "50px 0" }}
+          className="fontFamilyS"
+        >
+          КЫРГЫЗСКАЯ ЮРТА <br /> Дом, который всегда с тобой
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            width: "80%",
+            alignItems: "center",
+            margin: "auto",
+            backgroundColor: "rgb(0,0,0,0.5)",
+          }}
+        >
+          <CardMedia
+            component="img"
+            image="https://img.freepik.com/premium-photo/white-modern-yurt-against-background-of-coniferous-forest-and-mountains_124507-33928.jpg"
+            alt="yurta"
+            sx={{ width: "500px" }}
+          />
+
+          <Typography color="white" className="fontFamilyS">
+            В культуре и укладе жизни современных кыргызов до сих пор сильно
+            влияние их кочевого прошлого. В течение многих столетий переезжали
+            они с места на место по суровым просторам Сибири, занимались
+            разведением скота, главным образом лошадей. Будучи отменными
+            наездниками, постоянно воевали с многочисленными врагами. Но, в
+            конечном счете, оставили Сибирь и мигрировали в горы Тянь-Шаня и
+            Памира, где и нашли пристанище
+          </Typography>
+        </Box>
+
+        <Typography
+          sx={{ color: "white", margin: "50px 0 " }}
+          variant="h3"
+          className="fontFamilyS"
+        >
+          Юрта - это разборная, достаточно легкая конструкция
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            width: "80%",
+            alignItems: "center",
+            margin: "auto",
+            backgroundColor: "rgb(0,0,0,0.5)",
+          }}
+        >
+          <Typography className="fontFamilyS" color="white">
+            Для крепления отдельных элементов также использовались плетеные
+            кожаные ремешки, которые опоясывали юрту по периметру и служили ее
+            украшением. Идеальным материалом, который был выбран кочевниками для
+            покрытия стен и крыши юрты, была кошма. Кошму или войлочный ковер
+            катают из верблюжьей или овечьей шерсти. Она не пропускает холод и
+            жару, не боится влаги, в ней не заводятся паразиты. Кошмой также
+            полностью застилали полы. Семья простого кочевника обычно жила в
+            юрте «боз юй» на 5 - 6 «канатов» (секций «кереге»). На строительство
+            таких юрт уходило от 80 до 100 жердей «ууки». Когда семья снималась
+            с места, обычно требовалось 30 - 40 минут, чтобы ее разобрать. Юрта
+            весила около 400 кг, и ее перевозили, навьючив на двух лошадей или
+            одного верблюда.
+          </Typography>
+          <CardMedia
+            component="img"
+            image="https://sputnik.kg/img/101476/71/1014767142_0:210:2000:1335_2072x0_60_0_0_e7297d0eaa8abb525c3d63742f64e884.jpg"
+            alt="yurta"
+            sx={{ width: "500px" }}
+          />
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          textAlign: "center",
+          backgroundImage:
+            "url(https://supara.kg/wp-content/uploads/2017/06/5.yurt-young-01-600x400.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100%",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{ padding: "50px 0px" }}
+          className="fontFamilyS"
+        >
+          {" "}
+          НАШИ ЮРТЫ
+        </Typography>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <YurtsList />
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          textAlign: "center",
+          backgroundImage:
+            "url(https://sneg.top/uploads/posts/2023-03/thumbs/1678448468_sneg-top-p-gori-kirgizii-oboi-instagram-67.jpg)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Typography
+          variant="h3"
+          color="error"
+          sx={{
+            boxShadow: "5px 10px 10px black",
+            marginTop: "50px",
+            fontFamily: "'PT Serif', serif",
+          }}
+        >
+          Какие удобства вас ждут
+        </Typography>
+        <ul
+          style={{
+            textAlign: "start",
+            backgroundColor: "rgb(0,0,0,0.5)",
+            listStyle: "none",
+            fontSize: "35px",
+            width: "50%",
+          }}
+          className="fontFamilyS"
+        >
+          <li>
+            <WavesIcon /> Выход к озеру
+          </li>
+          <li>
+            <PetsIcon /> Можно с питомцами
+          </li>
+          <li>
+            <LocalFloristIcon />
+            Задний двор
+          </li>
+          <li>
+            <LocalFireDepartmentIcon />
+            Костровище
+          </li>
+          <li>
+            <CarRepairIcon />
+            Бесплатная парковка на территории
+          </li>
+
+          <li>
+            <LocalLaundryServiceIcon />
+            Стиральная машина
+          </li>
+          <li>Фен</li>
+          <li>
+            <MicrowaveIcon /> Микроволновая печь
+          </li>
+          <li>
+            <GasMeterIcon />
+            Датчик дыма
+          </li>
+          <li>
+            <GasMeterIcon /> Датчик угарного газа
+          </li>
+        </ul>
+      </Box>
+    </Box>
   );
 };
 
