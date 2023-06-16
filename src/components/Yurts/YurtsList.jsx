@@ -26,7 +26,6 @@ const YurtsList = () => {
         {yurts?.map((item) => (
           <YurtsCard item={item} />
         ))}
-        <EditModal />
       </Box>
     </>
   );
