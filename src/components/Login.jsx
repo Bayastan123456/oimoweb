@@ -34,7 +34,7 @@ const Login = () => {
         <input type="checkbox" id="chk" aria-hidden="true" />
 
         <div className="login">
-          <form className="form">
+          <div className="form">
             <label htmlFor="chk" aria-hidden="true">
               Login
             </label>
@@ -81,7 +81,7 @@ const Login = () => {
             ) : (
               <></>
             )}
-            <button onClick={handleUser}>Register</button>
+            <button onClick={handleUser}>Login</button>
             <Link
               to="/register"
               style={{ color: "black", textDecoration: "none" }}
@@ -90,7 +90,7 @@ const Login = () => {
             >
               {"Если у вас уже есть учетная запись? Войти"}
             </Link>
-          </form>
+          </div>
         </div>
       </div>
     </div>
