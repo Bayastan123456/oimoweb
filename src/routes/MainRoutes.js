@@ -7,6 +7,7 @@ import AdminPage from "../pages/AdminPage";
 import RegistrationPage from "../components/Register";
 import AboutUs from "../pages/AboutUsPage";
 import EditModal from "../components/EditModal";
+import LoginPage from "../pages/LoginPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -36,9 +37,14 @@ const MainRoutes = () => {
       id: 5,
     },
     {
+      link: "/login",
+      element: <LoginPage />,
+      id: 6,
+    },
+    {
       link: "/aboutUs",
       element: <AboutUs />,
-      id: 6,
+      id: 7,
     },
   ];
 

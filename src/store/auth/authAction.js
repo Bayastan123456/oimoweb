@@ -1,5 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { clearErrors, setEmailError, setPasswordError } from "./authSlice";
+import {
+  clearErrors,
+  clearInputs,
+  setEmailError,
+  setPasswordError,
+  setUser,
+} from "./authSlice";
 import fire from "../../fire";
 
 export const handleSingUp = createAsyncThunk(
@@ -48,5 +54,19 @@ export const handleLogin = createAsyncThunk(
             break;
         }
       });
+  }
+);
+
+export const authListener = createAsyncThunk(
+  "@auth/authListener",
+  async (_, { dispatch }) => {
+    await fire.auth().onAuthStateChanged((user) => {
+      if (user) {
+        dispatch(clearInputs());
+        dispatch(setUser(user?.email));
+      } else {
+        dispatch(setUser(""));
+      }
+    });
   }
 );

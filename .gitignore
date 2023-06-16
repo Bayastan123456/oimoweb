@@ -10,7 +10,8 @@
 
 # production
 /build
-/db.json
+./db.json
+./src/fire.js
 
 # misc
 .DS_Store
