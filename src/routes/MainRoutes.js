@@ -7,6 +7,7 @@ import AdminPage from "../pages/AdminPage";
 import RegistrationPage from "../components/Register";
 import AboutUs from "../pages/AboutUsPage";
 import EditModal from "../components/EditModal";
+import ContactPage from "../pages/ContactPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -38,6 +39,11 @@ const MainRoutes = () => {
     {
       link: "/aboutUs",
       element: <AboutUs />,
+      id: 6,
+    },
+    {
+      link: "/contacts",
+      element: <ContactPage />,
       id: 6,
     },
   ];
