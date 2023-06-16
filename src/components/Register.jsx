@@ -1,11 +1,50 @@
 import React, { useState } from "react";
 import "../index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { handleLogin, handleSingUp } from "../store/auth/authAction";
+import { setEmail, setPassword } from "../store/auth/authSlice";
 
 function App() {
+  const { email, password, emailError, passwordError } = useSelector(
+    (state) => state.auth
+  );
+  const [showError, setShowError] = useState(false);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+  };
+
+  const handleUser = () => {
+    if (!email.trim() || !password.trim()) {
+      setShowError(true);
+      return;
+    }
+    let obj = {
+      email,
+      password,
+      navigate,
+    };
+    dispatch(handleSingUp(obj));
+  };
+
+  const { emailLog, passwordLog } = useSelector((state) => state.auth);
+  const handleUserLogin = () => {
+    if (!emailLog.trim() || !passwordLog.trim()) {
+      setShowError(true);
+      return;
+    }
+    const obj = {
+      emailLog,
+      passwordLog,
+      navigate,
+    };
+    dispatch(handleLogin(obj));
   };
 
   return (
@@ -38,7 +77,7 @@ function App() {
               placeholder="Password"
               required
             />
-            <button>Log in</button>
+            <button onClick={() => handleUserLogin}>Log in</button>
           </form>
         </div>
 
@@ -60,6 +99,8 @@ function App() {
               name="email"
               placeholder="Email"
               required
+              value={email}
+              onChange={(e) => dispatch(setEmail(e.target.value))}
             />
             <input
               className="input"
@@ -67,8 +108,10 @@ function App() {
               name="pswd"
               placeholder="Password"
               required
+              value={password}
+              onChange={(e) => dispatch(setPassword(e.target.value))}
             />
-            <button>Register</button>
+            <button onClick={handleUser}>Register</button>
           </form>
         </div>
       </div>

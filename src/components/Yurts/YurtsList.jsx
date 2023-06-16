@@ -3,6 +3,7 @@ import YurtsCard from "./YurtsCard";
 import { Box } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getYurts } from "../../store/yurts/yurtsActions";
+import EditModal from "../EditModal";
 
 const YurtsList = () => {
   const { yurts } = useSelector((state) => state.yurts);
@@ -19,12 +20,13 @@ const YurtsList = () => {
           display: "flex",
           flexWrap: "wrap",
           gap: "5vw",
-          marginTop: "20px",
+          marginTop: "80px",
         }}
       >
         {yurts?.map((item) => (
           <YurtsCard item={item} />
         ))}
+        <EditModal />
       </Box>
     </>
   );
