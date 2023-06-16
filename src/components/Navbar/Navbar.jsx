@@ -15,16 +15,23 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
 import image from "./images/logo.svg";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import { ADMIN } from "../helpers/consts";
+import { useDispatch, useSelector } from "react-redux";
+import { authListener } from "../../store/auth/authAction";
 
-const pages = [
-  { path: "/yurts", title: "Юрты" },
-  { path: "/contacts", title: "Контакты" },
-  { path: "/aboutUs", title: "О нас" },
-  { path: "/admin", title: "Админ" },
-];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  console.log(user);
+
+  const pages = [
+    { path: "/yurts", title: "Юрты" },
+    { path: "/contacts", title: "Контакты" },
+    { path: "/aboutUs", title: "О нас" },
+    user === ADMIN && { path: "/admin", title: "Админ" },
+  ];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -44,6 +51,9 @@ function Navbar() {
   };
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    dispatch(authListener());
+  }, []);
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
