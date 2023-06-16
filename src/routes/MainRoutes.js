@@ -5,6 +5,7 @@ import YurtsPage from "../pages/YurtsPage";
 import { Route, Routes } from "react-router-dom";
 import AdminPage from "../pages/AdminPage";
 import RegistrationPage from "../components/Register";
+import EditModal from "../components/EditModal";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
