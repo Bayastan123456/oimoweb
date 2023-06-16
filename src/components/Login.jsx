@@ -1,46 +1,43 @@
 import React, { useState } from "react";
-import "../index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { handleSingUp } from "../store/auth/authAction";
+import { handleLogin } from "../store/auth/authAction";
 import { setEmail, setPassword } from "../store/auth/authSlice";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 
-function App() {
+const Login = () => {
   const { email, password, emailError, passwordError } = useSelector(
     (state) => state.auth
   );
+
   const [showError, setShowError] = useState(false);
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUser = () => {
     if (!email.trim() || !password.trim()) {
       setShowError(true);
       return;
     }
-    let obj = {
+    const obj = {
       email,
       password,
       navigate,
     };
-    dispatch(handleSingUp(obj));
+    dispatch(handleLogin(obj));
   };
 
   return (
     <div className="container">
       <div className="main">
+        <input type="checkbox" id="chk" aria-hidden="true" />
+
         <div className="login">
           <form className="form">
             <label htmlFor="chk" aria-hidden="true">
-              Register
+              Login
             </label>
-            <input
-              className="input"
-              type="text"
-              name="txt"
-              placeholder="Username"
-            />
             <input
               className="input"
               type="email"
@@ -84,26 +81,20 @@ function App() {
             ) : (
               <></>
             )}
-            <button
-              onClick={() => {
-                handleUser();
-                navigate("/login");
-              }}
-            >
-              Register
-            </button>
+            <button onClick={handleUser}>Register</button>
             <Link
+              to="/register"
               style={{ color: "black", textDecoration: "none" }}
-              to="/login"
               variant="body2"
+              //   onClick={() => navigate("/register")}
             >
-              {"У вас уже есть учетная запись? Войти"}
+              {"Если у вас уже есть учетная запись? Войти"}
             </Link>
           </form>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default App;
+export default Login;
