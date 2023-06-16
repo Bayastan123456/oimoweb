@@ -103,6 +103,7 @@ const YurtsDetails = () => {
             >
               Удаление
             </Button>
+            <Button>В корзину</Button>
           </CardContent>
         </CardActionArea>
       </Card>

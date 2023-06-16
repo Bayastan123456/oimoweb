@@ -15,6 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
 import image from "./images/logo.svg";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import Cart from "../Cart/Cart";
 
 const pages = [
   { path: "/yurts", title: "Юрты" },
@@ -140,6 +141,7 @@ function Navbar() {
               sx={{ marginLeft: "50px" }}
               onClick={() => navigate("/register")}
             />
+            <Cart />
           </Box>
         </Toolbar>
       </Container>

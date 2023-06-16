@@ -84,14 +84,7 @@ function App() {
             ) : (
               <></>
             )}
-            <button
-              onClick={() => {
-                handleUser();
-                navigate("/login");
-              }}
-            >
-              Register
-            </button>
+            <button onClick={handleUser}>Register</button>
             <Link
               style={{ color: "black", textDecoration: "none" }}
               to="/login"
