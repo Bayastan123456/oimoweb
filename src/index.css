@@ -117,3 +117,18 @@ label {
   color: white;
   transition: 0.6s;
 }
+
+/* ! для навбара привязать к текстам */
+/* :visited:after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #000;
+  bottom: -6px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  left: 8px;
+  right: 8px;
+  bottom: -21px;
+} */
