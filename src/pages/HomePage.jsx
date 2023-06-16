@@ -18,6 +18,7 @@ import GasMeterIcon from "@mui/icons-material/GasMeter";
 import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
 import CarRepairIcon from "@mui/icons-material/CarRepair";
 import MicrowaveIcon from "@mui/icons-material/Microwave";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const progressCircle = useRef(null);
@@ -26,6 +27,7 @@ const HomePage = () => {
     progressCircle.current.style.setProperty("--progress", 1 - progress);
     progressContent.current.textContent = `${Math.ceil(time / 2000)}s`;
   };
+  const navigate = useNavigate();
   return (
     <Box color="white" sx={{ fontFamily: "'PT Serif', serif" }}>
       <Swiper
@@ -75,6 +77,7 @@ const HomePage = () => {
               variant="outlined"
               sx={{ marginTop: "50px", color: "white", backgroundColor: "red" }}
               className="fontFamilyS"
+              onClick={() => navigate("/yurts")}
             >
               Заказать
             </Button>
@@ -193,10 +196,14 @@ const HomePage = () => {
             width: "80%",
             alignItems: "center",
             margin: "auto",
-            backgroundColor: "rgb(0,0,0,0.5)",
+            paddingBottom: "50px",
           }}
         >
-          <Typography className="fontFamilyS" color="white">
+          <Typography
+            className="fontFamilyS"
+            color="white"
+            sx={{ backgroundColor: "rgb(0,0,0,0.5)", padding: "40px 0" }}
+          >
             Для крепления отдельных элементов также использовались плетеные
             кожаные ремешки, которые опоясывали юрту по периметру и служили ее
             украшением. Идеальным материалом, который был выбран кочевниками для
@@ -235,7 +242,13 @@ const HomePage = () => {
           {" "}
           НАШИ ЮРТЫ
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "50px",
+          }}
+        >
           <YurtsList />
         </Box>
       </Box>
