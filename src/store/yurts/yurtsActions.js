@@ -29,3 +29,10 @@ export const deleteYurt = createAsyncThunk(
     dispatch(getYurts());
   }
 );
+export const editYurt = createAsyncThunk(
+  "@yurts/editYurt",
+  async (obj, { dispatch }) => {
+    await axios.patch(`${API}/${obj.id}`, obj);
+    dispatch(getYurts());
+  }
+);

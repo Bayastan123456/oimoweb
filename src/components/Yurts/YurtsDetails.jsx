@@ -1,6 +1,7 @@
 import { Button, useSelect } from "@mui/base";
-import { Favorite, FavoriteBorder } from "@mui/icons-material";
+import { Favorite, FavoriteBorder, Image } from "@mui/icons-material";
 import {
+  Box,
   Card,
   CardActionArea,
   CardContent,
@@ -18,6 +19,7 @@ import {
   getOneYurt,
   getYurts,
 } from "../../store/yurts/yurtsActions";
+import EditModal from "../EditModal";
 
 const YurtsDetails = () => {
   const { yurts } = useSelector((state) => state.yurts);
@@ -36,26 +38,6 @@ const YurtsDetails = () => {
   console.log(yurtDetails);
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const image = [
-    {
-      img: yurtDetails.image1,
-    },
-    {
-      img: yurtDetails.image2,
-    },
-    {
-      img: yurtDetails.image3,
-    },
-    {
-      img: yurtDetails.image4,
-    },
-    {
-      img: "https://a0.muscache.com/im/pictures/bb39ca0e-0241-4d77-b7a7-3f3ea6ac3bc7.jpg?im_w=1440",
-    },
-    {
-      img: "https://a0.muscache.com/im/pictures/5e844e8d-ea23-404f-8818-4120660cd15d.jpg?im_w=1440",
-    },
-  ];
 
   const navigate = useNavigate();
   return (
@@ -63,28 +45,28 @@ const YurtsDetails = () => {
       YurtsDetails
       <Card sx={{ maxWidth: 345, borderRadius: "20px" }}>
         <CardActionArea>
-          {/* <Swiper
-            spaceBetween={5}
-            slidesPerView={1}
-            cssMode={true}
-            pagination={{
-              clickable: true,
-            }}
-            mousewheel={true}
-            keyboard={true}
-            modules={[Pagination, Mousewheel, Keyboard]}
-            className="mySwiper"
-          >
-            {image.map((item) => (
-              <SwiperSlide>
-                <img
-                  style={{ width: "100%", height: "300px" }}
-                  src={item.img}
-                  alt="image"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper> */}
+          <Box>
+            <img
+              style={{ width: "100%", height: "300px" }}
+              src={yurtDetails.image1}
+              alt="image"
+            />{" "}
+            <img
+              style={{ width: "100%", height: "300px" }}
+              src={yurtDetails.image2}
+              alt="image"
+            />{" "}
+            <img
+              style={{ width: "100%", height: "300px" }}
+              src={yurtDetails.image3}
+              alt="image"
+            />{" "}
+            <img
+              style={{ width: "100%", height: "300px" }}
+              src={yurtDetails.image4}
+              alt="image"
+            />
+          </Box>
           <CardContent>
             <Typography
               gutterBottom
@@ -112,7 +94,7 @@ const YurtsDetails = () => {
             >
               ${yurtDetails.price}
             </Typography>
-            <Button>Редактирование</Button>
+            <EditModal yurtDetails={yurtDetails} />
             <Button
               onClick={() => {
                 dispatch(deleteYurt(id));
