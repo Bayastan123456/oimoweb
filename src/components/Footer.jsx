@@ -4,12 +4,13 @@ const Footer = () => {
   return (
     <footer
       style={{
-        backgroundColor: "#FF0000",
-        // bottom: 0,
-        // left: 0,
-        // right: 0,
-        // position: "absolute",
+        backgroundColor: "grey",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        position: "relative",
         flexWrap: "wrap",
+        height: "100px",
         boxShadow: "0px -4px 10px rgba(0, 0, 0, 0.2)",
       }}
     >
@@ -28,8 +29,11 @@ const Footer = () => {
             </h4>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <a href="#" style={{ color: "white", textDecoration: "none" }}>
-                  About
+                <a
+                  href="/aboutUs"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  О нас
                 </a>
               </li>
               <li>

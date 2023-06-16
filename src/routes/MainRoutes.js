@@ -6,7 +6,9 @@ import { Route, Routes } from "react-router-dom";
 import AdminPage from "../pages/AdminPage";
 import YurtsDetails from "../components/Yurts/YurtsDetails";
 import RegistrationPage from "../components/Register";
+import AboutUs from "../pages/AboutUsPage";
 import EditModal from "../components/EditModal";
+import LoginPage from "../pages/LoginPage";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -36,6 +38,16 @@ const MainRoutes = () => {
       id: 5,
     },
     { link: "/register", element: <RegistrationPage />, id: 6 },
+    {
+      link: "/login",
+      element: <LoginPage />,
+      id: 7,
+    },
+    {
+      link: "/aboutUs",
+      element: <AboutUs />,
+      id: 8,
+    },
   ];
 
   return (
