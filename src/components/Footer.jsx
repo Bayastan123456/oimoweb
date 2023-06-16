@@ -10,6 +10,7 @@ const Footer = () => {
         right: 0,
         position: "absolute",
         flexWrap: "wrap",
+        height: "100px",
         boxShadow: "0px -4px 10px rgba(0, 0, 0, 0.2)",
       }}
     >
