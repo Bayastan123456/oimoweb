@@ -1,8 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API } from "../../components/helpers/consts";
-import { setYurts } from "./yurtsSlice";
+import { oneYurt, setYurts } from "./yurtsSlice";
 import axios from "axios";
-import { async } from "q";
 
 export const getYurts = createAsyncThunk(
   "@yurts/getYurts",
@@ -21,6 +20,12 @@ export const addYurts = createAsyncThunk(
 );
 export const getOneYurt = createAsyncThunk("@yurts/getOneYurt", async (id) => {
   const { data } = await axios.get(`${API}/${id}`);
-  console.log(data);
   return data;
 });
+export const deleteYurt = createAsyncThunk(
+  "@yurts/deleteYurt",
+  async (id, { dispatch }) => {
+    await axios.delete(`${API}/${id}`);
+    dispatch(getYurts());
+  }
+);

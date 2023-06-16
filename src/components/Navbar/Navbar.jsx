@@ -103,7 +103,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -136,7 +136,10 @@ function Navbar() {
           </Box>
 
           <Box sx={{ width: "10%", color: "black" }}>
-            <PersonOutlineIcon sx={{ marginLeft: "50px" }} />
+            <PersonOutlineIcon
+              sx={{ marginLeft: "50px" }}
+              onClick={() => navigate("/register")}
+            />
           </Box>
         </Toolbar>
       </Container>

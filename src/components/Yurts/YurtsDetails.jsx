@@ -1,4 +1,4 @@
-import { useSelect } from "@mui/base";
+import { Button, useSelect } from "@mui/base";
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import {
   Card,
@@ -9,20 +9,31 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import Swiper, { Keyboard, Mousewheel } from "swiper";
 import { SwiperSlide } from "swiper/react";
-import { getOneYurt } from "../../store/yurts/yurtsActions";
+import {
+  deleteYurt,
+  getOneYurt,
+  getYurts,
+} from "../../store/yurts/yurtsActions";
 
 const YurtsDetails = () => {
-  const { yurtDetails } = useSelect((state) => state.yurtDetails);
-  console.log(yurtDetails);
+  const { yurts } = useSelector((state) => state.yurts);
+  const { yurtDetails } = useSelector((state) => state.yurts);
   const dispatch = useDispatch();
   const { id } = useParams();
+  console.log(id);
+
+  console.log(yurts);
+
   useEffect(() => {
+    dispatch(getYurts());
     dispatch(getOneYurt(id));
   }, []);
+
+  console.log(yurtDetails);
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const image = [
@@ -52,7 +63,7 @@ const YurtsDetails = () => {
       YurtsDetails
       <Card sx={{ maxWidth: 345, borderRadius: "20px" }}>
         <CardActionArea>
-          <Swiper
+          {/* <Swiper
             spaceBetween={5}
             slidesPerView={1}
             cssMode={true}
@@ -73,7 +84,7 @@ const YurtsDetails = () => {
                 />
               </SwiperSlide>
             ))}
-          </Swiper>
+          </Swiper> */}
           <CardContent>
             <Typography
               gutterBottom
@@ -101,6 +112,15 @@ const YurtsDetails = () => {
             >
               ${yurtDetails.price}
             </Typography>
+            <Button>Редактирование</Button>
+            <Button
+              onClick={() => {
+                dispatch(deleteYurt(id));
+                navigate("/yurts");
+              }}
+            >
+              Удаление
+            </Button>
           </CardContent>
         </CardActionArea>
       </Card>

@@ -5,6 +5,7 @@ import YurtsPage from "../pages/YurtsPage";
 import { Route, Routes } from "react-router-dom";
 import AdminPage from "../pages/AdminPage";
 import YurtsDetails from "../components/Yurts/YurtsDetails";
+import RegistrationPage from "../components/Register";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -33,6 +34,7 @@ const MainRoutes = () => {
       element: <YurtsDetails />,
       id: 5,
     },
+    { link: "/register", element: <RegistrationPage />, id: 6 },
   ];
 
   return (
