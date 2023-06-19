@@ -1,16 +1,6 @@
 {
   "yurts": [
     {
-<<<<<<< HEAD
-      "city": "jn",
-      "price": "kjnkjn",
-      "days": "n",
-      "descr": "nkjnjn",
-      "image1": "kjnkjn",
-      "image2": "jknkjn",
-      "image3": "knknkjn",
-      "image4": "kjkjj",
-=======
       "city": "Иссык-Кульская область, Киргизия",
       "price": "50",
       "days": "12",
@@ -20,18 +10,6 @@
       "image3": "https://a0.muscache.com/im/pictures/83b368e1-21a3-45e9-b518-43dd896414ca.jpg?im_w=720",
       "image4": "https://a0.muscache.com/im/pictures/b742bc16-529a-468a-86d2-15f206b753ff.jpg?im_w=720",
       "id": 2
-    },
-    {
-      "city": "Рованиеми, Финляндия",
-      "price": "80",
-      "days": "45",
-      "descr": "Это уникальная возможность поспать рядом с прекрасным видом на реку в Арктическом круге . Уютный и теплый Юрт расположен в 20 минутах езды от центра Рованиеми, прямо рядом с большой рекой. Юрт украшен красивыми скандинавскими элементами и теплый даже в холодную погоду на улице. Это место для размышлений, отдыха и наслаждения чистыми и простыми вещами. Мы думаем, что это то, что каждый должен экспериментировать хотя бы раз в жизни!",
-      "image1": "https://a0.muscache.com/im/pictures/7fcc1e03-09f6-4e79-8254-1d33dcad3274.jpg?im_w=720",
-      "image2": "https://a0.muscache.com/im/pictures/3a99dd16-6fc8-4f23-9b69-7caa2026b1c6.jpg?im_w=720",
-      "image3": "https://a0.muscache.com/im/pictures/d28619d8-9699-445e-a27d-30f4253965a5.jpg?im_w=720",
-      "image4": "https://a0.muscache.com/im/pictures/4d205745-d422-4ae5-9dc6-9fd9c7b4e46c.jpg?im_w=720",
->>>>>>> 1819ec185c9b386d8dcd8251e17eaa1ad8575b70
-      "id": 3
     },
     {
       "city": "Talass",
