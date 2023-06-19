@@ -172,11 +172,11 @@ body {
   background-image: url(./pages/img/main.png);
   display: flex;
   flex-direction: column;
-  max-height: 500px;
+  max-height: 90vh;
   overflow: hidden;
   border-radius: 12px;
   margin: 0 auto;
-  width: 500px;
+  width: 50vw;
   /* margin-top: 80px; */
   box-shadow: 1px 1px 50px 3px black;
 }
