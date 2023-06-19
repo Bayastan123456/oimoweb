@@ -15,6 +15,16 @@ const Admin = () => {
 
   const dispatch = useDispatch();
   const handleYurts = () => {
+    if (
+      !city.trim() ||
+      !price.trim() ||
+      !days.trim() ||
+      !descr.trim() ||
+      !image1.trim()
+    ) {
+      alert("Заполните поля!");
+      return;
+    }
     let obj = {
       city,
       price,
@@ -32,7 +42,7 @@ const Admin = () => {
       <Box
         sx={{
           width: "100%",
-          marginTop: "10px",
+          marginTop: "100px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

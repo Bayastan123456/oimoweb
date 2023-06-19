@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -14,10 +15,11 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Mousewheel, Keyboard } from "swiper";
 import { Favorite, FavoriteBorder, Label } from "@mui/icons-material";
+import { useNavigate } from "react-router";
 
 const YurtsCard = ({ item }) => {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
+  const navigate = useNavigate();
   const image = [
     {
       img: item.image1,
@@ -40,7 +42,7 @@ const YurtsCard = ({ item }) => {
   ];
   return (
     <Card sx={{ maxWidth: 345, borderRadius: "20px" }}>
-      <CardActionArea>
+      <CardActionArea onClick={() => navigate("/details/" + item.id)}>
         <Swiper
           spaceBetween={5}
           slidesPerView={1}
