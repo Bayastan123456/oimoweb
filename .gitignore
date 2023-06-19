@@ -10,7 +10,6 @@
 
 # production
 /build
-./db.json
 ./src/fire.js
 
 # misc

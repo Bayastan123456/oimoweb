@@ -19,6 +19,7 @@ import LocalLaundryServiceIcon from "@mui/icons-material/LocalLaundryService";
 import CarRepairIcon from "@mui/icons-material/CarRepair";
 import MicrowaveIcon from "@mui/icons-material/Microwave";
 import { useNavigate } from "react-router-dom";
+import OnlyThree from "../components/OnlyThree";
 
 const HomePage = () => {
   const progressCircle = useRef(null);
@@ -140,16 +141,17 @@ const HomePage = () => {
           backgroundImage:
             "url(https://sneg.top/uploads/posts/2023-03/1678448462_sneg-top-p-gori-kirgizii-oboi-instagram-3.jpg)",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "100%",
-          backgroundPosition: "center",
+          backgroundSize: "cover",
           textAlign: "center",
           width: "100%",
         }}
       >
         <Typography
-          variant="h3"
           color="white"
-          sx={{ padding: "50px 0" }}
+          sx={{
+            padding: "50px 0",
+            fontSize: { xl: 50, lg: 45, md: 40, cm: 35, xs: 30 },
+          }}
           className="fontFamilyS"
         >
           КЫРГЫЗСКАЯ ЮРТА <br /> Дом, который всегда с тобой
@@ -158,6 +160,13 @@ const HomePage = () => {
           sx={{
             display: "flex",
             justifyContent: "center",
+            flexWrap: {
+              xl: "nowrap",
+              lg: "nowrap",
+              md: "nowrap",
+              cm: "wrap",
+              xs: "wrap",
+            },
             width: "80%",
             alignItems: "center",
             margin: "auto",
@@ -168,7 +177,7 @@ const HomePage = () => {
             component="img"
             image="https://img.freepik.com/premium-photo/white-modern-yurt-against-background-of-coniferous-forest-and-mountains_124507-33928.jpg"
             alt="yurta"
-            sx={{ width: "500px" }}
+            sx={{ width: "50%" }}
           />
 
           <Typography color="white" className="fontFamilyS">
@@ -183,8 +192,11 @@ const HomePage = () => {
         </Box>
 
         <Typography
-          sx={{ color: "white", margin: "50px 0 " }}
-          variant="h3"
+          sx={{
+            color: "white",
+            margin: "50px 0 ",
+            fontSize: { xl: 50, lg: 45, md: 40, cm: 35, xs: 30 },
+          }}
           className="fontFamilyS"
         >
           Юрта - это разборная, достаточно легкая конструкция
@@ -202,7 +214,17 @@ const HomePage = () => {
           <Typography
             className="fontFamilyS"
             color="white"
-            sx={{ backgroundColor: "rgb(0,0,0,0.5)", padding: "40px 0" }}
+            sx={{
+              backgroundColor: "rgb(0,0,0,0.5)",
+              padding: "40px 0",
+              fontSize: {
+                xl: 18,
+                lg: 17,
+                md: 16,
+                cm: 15,
+                xs: 11,
+              },
+            }}
           >
             Для крепления отдельных элементов также использовались плетеные
             кожаные ремешки, которые опоясывали юрту по периметру и служили ее
@@ -221,7 +243,16 @@ const HomePage = () => {
             component="img"
             image="https://sputnik.kg/img/101476/71/1014767142_0:210:2000:1335_2072x0_60_0_0_e7297d0eaa8abb525c3d63742f64e884.jpg"
             alt="yurta"
-            sx={{ width: "500px" }}
+            sx={{
+              width: { xl: "40%", lg: "40%", md: "40%", cm: "60%", xs: "60%" },
+              display: {
+                xl: "block",
+                lg: "block",
+                md: "block",
+                cm: "none",
+                xs: "none",
+              },
+            }}
           />
         </Box>
       </Box>
@@ -231,12 +262,15 @@ const HomePage = () => {
           backgroundImage:
             "url(https://supara.kg/wp-content/uploads/2017/06/5.yurt-young-01-600x400.jpg)",
           backgroundRepeat: "no-repeat",
-          backgroundSize: "100%",
+          backgroundSize: "cover",
+          width: "100%",
         }}
       >
         <Typography
-          variant="h3"
-          sx={{ padding: "50px 0px" }}
+          sx={{
+            padding: "50px 0px",
+            fontSize: { xl: 50, lg: 45, md: 40, cm: 35, xs: 30 },
+          }}
           className="fontFamilyS"
         >
           {" "}
@@ -247,9 +281,11 @@ const HomePage = () => {
             display: "flex",
             justifyContent: "center",
             paddingBottom: "50px",
+            flexWrap: "wrap",
+            overflowX: "auto",
           }}
         >
-          <YurtsList />
+          <OnlyThree />
         </Box>
       </Box>
       <Box
@@ -265,22 +301,30 @@ const HomePage = () => {
         }}
       >
         <Typography
-          variant="h3"
+          // variant="h3"
           color="error"
           sx={{
             boxShadow: "5px 10px 10px black",
             marginTop: "50px",
             fontFamily: "'PT Serif', serif",
+            fontSize: { xl: 50, lg: 45, md: 40, cm: 35, xs: 30 },
           }}
         >
           Какие удобства вас ждут
         </Typography>
-        <ul
-          style={{
+        <Typography
+          sx={{
+            variant: "ul",
             textAlign: "start",
             backgroundColor: "rgb(0,0,0,0.5)",
             listStyle: "none",
-            fontSize: "35px",
+            fontSize: {
+              xl: 35,
+              lg: 30,
+              md: 25,
+              cm: 20,
+              xs: 11,
+            },
             width: "50%",
           }}
           className="fontFamilyS"
@@ -308,7 +352,6 @@ const HomePage = () => {
             <LocalLaundryServiceIcon />
             Стиральная машина
           </li>
-          <li>Фен</li>
           <li>
             <MicrowaveIcon /> Микроволновая печь
           </li>
@@ -319,7 +362,7 @@ const HomePage = () => {
           <li>
             <GasMeterIcon /> Датчик угарного газа
           </li>
-        </ul>
+        </Typography>
       </Box>
     </Box>
   );
