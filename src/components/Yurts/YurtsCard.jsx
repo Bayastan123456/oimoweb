@@ -33,16 +33,17 @@ const YurtsCard = ({ item }) => {
     {
       img: item.image4,
     },
-    {
-      img: "https://a0.muscache.com/im/pictures/bb39ca0e-0241-4d77-b7a7-3f3ea6ac3bc7.jpg?im_w=1440",
-    },
-    {
-      img: "https://a0.muscache.com/im/pictures/5e844e8d-ea23-404f-8818-4120660cd15d.jpg?im_w=1440",
-    },
   ];
+
   return (
-    <Card sx={{ maxWidth: 345, borderRadius: "20px" }}>
-      <CardActionArea onClick={() => navigate("/details/" + item.id)}>
+    <Card
+      sx={{
+        maxWidth: 345,
+        borderRadius: "20px",
+        boxShadow: "20px 20px 20px black",
+      }}
+    >
+      <CardActionArea>
         <Swiper
           spaceBetween={5}
           slidesPerView={1}
@@ -55,11 +56,11 @@ const YurtsCard = ({ item }) => {
           modules={[Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >
-          {image.map((item) => (
-            <SwiperSlide>
+          {image.map((i) => (
+            <SwiperSlide onClick={() => navigate("/details/" + item.id)}>
               <img
                 style={{ width: "100%", height: "300px" }}
-                src={item.img}
+                src={i.img}
                 alt="image"
               />
             </SwiperSlide>
@@ -82,8 +83,7 @@ const YurtsCard = ({ item }) => {
             }
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {item.days}
-            {item.descr}
+            Свободные дни: {item.days}
           </Typography>
           <Typography variant="body2" color="text.secondary" fontWeight="bold">
             ${item.price}

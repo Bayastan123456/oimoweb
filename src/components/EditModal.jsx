@@ -73,7 +73,9 @@ const EditModal = ({ yurtDetails }) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Редактирование</Button>
+      <Button onClick={handleOpen} color="secondary" variant="contained">
+        Редактирование
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
