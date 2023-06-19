@@ -15,7 +15,6 @@ import {
 } from "../../store/yurts/yurtsActions";
 import EditModal from "../EditModal";
 import { ADMIN } from "../helpers/consts";
-import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
 const YurtsDetails = () => {
   const { yurts } = useSelector((state) => state.yurts);
   const { yurtDetails } = useSelector((state) => state.yurts);
