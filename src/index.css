@@ -172,7 +172,7 @@ body {
   background-image: url(./pages/img/main.png);
   display: flex;
   flex-direction: column;
-  max-height: 90vh;
+  max-height: 80vh;
   overflow: hidden;
   border-radius: 12px;
   margin: 0 auto;
@@ -199,7 +199,7 @@ body {
 }
 
 .login label {
-  margin: 25% 0 5%;
+  margin: 10% 0 5%;
 }
 
 label {
