@@ -31,7 +31,7 @@ function App() {
     <div className="container">
       <div className="main">
         <div className="login">
-          <form className="form">
+          <div className="form">
             <label htmlFor="chk" aria-hidden="true">
               Register
             </label>
@@ -84,14 +84,7 @@ function App() {
             ) : (
               <></>
             )}
-            <button
-              onClick={() => {
-                handleUser();
-                navigate("/login");
-              }}
-            >
-              Register
-            </button>
+            <button onClick={handleUser}>Register</button>
             <Link
               style={{ color: "black", textDecoration: "none" }}
               to="/login"
@@ -99,7 +92,7 @@ function App() {
             >
               {"У вас уже есть учетная запись? Войти"}
             </Link>
-          </form>
+          </div>
         </div>
       </div>
     </div>

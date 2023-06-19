@@ -2,7 +2,7 @@ import React from "react";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import YurtsPage from "../pages/YurtsPage";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import AdminPage from "../pages/AdminPage";
 import YurtsDetails from "../components/Yurts/YurtsDetails";
 import RegistrationPage from "../components/Register";
@@ -10,8 +10,13 @@ import AboutUs from "../pages/AboutUsPage";
 import EditModal from "../components/EditModal";
 import ContactPage from "../pages/ContactPage";
 import LoginPage from "../pages/LoginPage";
+import Admin from "../components/Admin";
+import { ADMIN } from "../components/helpers/consts";
+import { useSelector } from "react-redux";
 
 const MainRoutes = () => {
+  const { user } = useSelector((state) => state.auth);
+
   const PUBLIC_ROUTES = [
     {
       link: "/",
@@ -27,11 +32,6 @@ const MainRoutes = () => {
       link: "*",
       element: <NotFoundPage />,
       id: 3,
-    },
-    {
-      link: "/admin",
-      element: <AdminPage />,
-      id: 4,
     },
     {
       link: "/details/:id",
@@ -55,13 +55,29 @@ const MainRoutes = () => {
       id: 6,
     },
   ];
-
+  const PRIVATE_ROUTES = [
+    {
+      link: "/admin",
+      element: <AdminPage />,
+      key: 1,
+    },
+  ];
   return (
     <>
       <Routes>
         {PUBLIC_ROUTES.map((item) => (
           <Route path={item.link} element={item.element} key={item.id} />
         ))}
+        {user &&
+          PRIVATE_ROUTES.map((item) => (
+            <Route
+              path={item.link}
+              element={
+                user === ADMIN ? item.element : <Navigate replace to="*" />
+              }
+              key={item.id}
+            />
+          ))}
       </Routes>
     </>
   );

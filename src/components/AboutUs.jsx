@@ -24,14 +24,15 @@ const AboutUs = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          margin: "8rem 20rem",
+          textAlign: "center",
+          margin: "8rem 0",
           flexDirection: "column",
           fontSize: "20px",
           fontFamily: "Arial",
           lineHeight: "1.5",
           color: "black",
-          "@media(min-width: 1024px)": {
-            margin: "8rem 15rem",
+          "@media(min-width: 951px)": {
+            margin: "8rem auto",
           },
         }}
       >
