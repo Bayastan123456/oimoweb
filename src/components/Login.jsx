@@ -36,7 +36,7 @@ const Login = () => {
         <div className="login">
           <div className="form">
             <label htmlFor="chk" aria-hidden="true">
-              Login
+              Log In
             </label>
             <input
               className="input"

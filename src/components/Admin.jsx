@@ -61,6 +61,8 @@ const Admin = () => {
       Admin
       <Box
         sx={{
+          width: "100%",
+          marginTop: "100px",
           width: "35%",
           display: "flex",
           flexWrap: "wrap",

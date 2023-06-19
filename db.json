@@ -1,6 +1,16 @@
 {
   "yurts": [
     {
+<<<<<<< HEAD
+      "city": "jn",
+      "price": "kjnkjn",
+      "days": "n",
+      "descr": "nkjnjn",
+      "image1": "kjnkjn",
+      "image2": "jknkjn",
+      "image3": "knknkjn",
+      "image4": "kjkjj",
+=======
       "city": "Иссык-Кульская область, Киргизия",
       "price": "50",
       "days": "12",
@@ -20,6 +30,7 @@
       "image2": "https://a0.muscache.com/im/pictures/3a99dd16-6fc8-4f23-9b69-7caa2026b1c6.jpg?im_w=720",
       "image3": "https://a0.muscache.com/im/pictures/d28619d8-9699-445e-a27d-30f4253965a5.jpg?im_w=720",
       "image4": "https://a0.muscache.com/im/pictures/4d205745-d422-4ae5-9dc6-9fd9c7b4e46c.jpg?im_w=720",
+>>>>>>> 1819ec185c9b386d8dcd8251e17eaa1ad8575b70
       "id": 3
     },
     {

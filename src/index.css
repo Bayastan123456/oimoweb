@@ -282,3 +282,37 @@ label {
   right: 8px;
   bottom: -21px;
 } */
+.contform {
+  margin-top: 64px;
+}
+.bg-maincon {
+  background-image: url(./pages/img/main.png);
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  font-family: arial;
+  backdrop-filter: blur(10px);
+}
+
+.contact-img #bishkek {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  width: 250px;
+}
+.contact-img #issyk {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  width: 250px;
+}
+.contact-img #osh {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  width: 250px;
+}
+
+.contact-info__text {
+  flex: 1 1 auto;
+}
