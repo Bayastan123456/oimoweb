@@ -39,6 +39,16 @@ const YurtsDetails = () => {
 
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
+  function addToCart(yurt) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        yurts: [],
+        totalPrice: 0,
+      };
+    }
+  }
+
   const navigate = useNavigate();
   return (
     <>
