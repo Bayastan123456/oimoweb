@@ -1,6 +1,6 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -15,10 +15,16 @@ import {
 } from "../../store/yurts/yurtsActions";
 import EditModal from "../EditModal";
 import { ADMIN } from "../helpers/consts";
+import { getCart } from "../../store/cart/cartSlice";
+import { calcTotalPrice } from "../helpers/functions";
 const YurtsDetails = () => {
   const { yurts } = useSelector((state) => state.yurts);
   const { yurtDetails } = useSelector((state) => state.yurts);
   const { user } = useSelector((state) => state.auth);
+  const [count, setCount] = useState(1);
+  function getCount() {
+    setCount((prev) => prev + 1);
+  }
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -37,8 +43,33 @@ const YurtsDetails = () => {
 
   const navigate = useNavigate();
 
-  const result = +yurtDetails.price + 10;
+  const result = +yurtDetails.price * count + 10;
 
+  function addToCart(yurt) {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        yurts: [],
+        totalPrice: 0,
+      };
+    }
+    let obj = {
+      item: yurt,
+      subPrice: +yurt.price * count + 10,
+    };
+
+    let yurtInCart = cart.yurts.filter((elem) => elem.item.id === yurt.id);
+
+    if (yurtInCart.length == 0) {
+      cart.yurts.push(obj);
+    } else {
+      cart.yurts = cart.yurts.filter((elem) => elem.item.id !== yurt.id);
+    }
+    cart.totalPrice = calcTotalPrice(cart.yurts);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(getCart(cart));
+    console.log(cart.yurts);
+  }
   return (
     <Box
       sx={{
@@ -156,6 +187,26 @@ const YurtsDetails = () => {
               </Typography>
               <Typography>$10</Typography>
             </Box>
+            <Box
+              sx={{
+                width: "10vw",
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+              }}
+            >
+              <Button
+                onClick={() =>
+                  count > 1 ? setCount((prev) => prev - 1) : setCount(1)
+                }
+              >
+                -
+              </Button>
+              <Typography>{count}</Typography>
+              <Button onClick={getCount}>+</Button>
+              <Typography>ночей</Typography>
+            </Box>
+
             <Typography
               sx={{
                 borderTop: "2px solid gray",
@@ -170,6 +221,7 @@ const YurtsDetails = () => {
                 color="secondary"
                 variant="contained"
                 sx={{ width: "250px", margin: "0 auto" }}
+                onClick={() => addToCart(yurtDetails)}
               >
                 В корзину
               </Button>

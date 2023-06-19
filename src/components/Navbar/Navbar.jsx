@@ -25,7 +25,6 @@ const settings = ["Profile", "Account", "Dashboard", "Logout"];
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  console.log(user);
 
   const pages = [
     { path: "/yurts", title: "Юрты" },
