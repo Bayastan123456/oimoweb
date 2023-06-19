@@ -72,8 +72,13 @@ const EditModal = ({ yurtDetails }) => {
   };
 
   return (
-    <div>
-      <Button onClick={handleOpen} color="secondary" variant="contained">
+    <Box>
+      <Button
+        onClick={handleOpen}
+        color="secondary"
+        variant="contained"
+        sx={{ fontSize: { xl: 14, lg: 10, md: 10, sm: 9, xs: 8 } }}
+      >
         Редактирование
       </Button>
       <Modal
@@ -161,7 +166,7 @@ const EditModal = ({ yurtDetails }) => {
           <Button onClick={saveEditedYurts}>Сохранить</Button>
         </Box>
       </Modal>
-    </div>
+    </Box>
   );
 };
 

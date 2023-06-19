@@ -11,7 +11,7 @@ const filtr = [
 ];
 const Sort = () => {
   return (
-    <Box sx={{ paddingTop: "100px", display: "flex", justifyContent: "end" }}>
+    <>
       <Autocomplete
         disablePortal
         id="combo-box-demo"
@@ -19,7 +19,7 @@ const Sort = () => {
         sx={{ width: 300, backgroundColor: "white" }}
         renderInput={(params) => <TextField {...params} label="Сортировка" />}
       />
-    </Box>
+    </>
   );
 };
 

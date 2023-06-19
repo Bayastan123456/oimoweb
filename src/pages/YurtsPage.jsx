@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import YurtsList from "../components/Yurts/YurtsList";
-import { Box, Pagination, Typography } from "@mui/material";
+import { Box, Pagination, TextField, Typography } from "@mui/material";
 import Sort from "../components/Sort";
 import { useDispatch, useSelector } from "react-redux";
 import { getYurts } from "../store/yurts/yurtsActions";
+import Search from "../components/Search";
 
 const YurtsPage = () => {
   const { yurts } = useSelector((state) => state.yurts);
@@ -36,7 +37,18 @@ const YurtsPage = () => {
         backgroundPosition: "center",
       }}
     >
-      <Sort />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          paddingTop: "100px",
+        }}
+      >
+        <Search />
+
+        <Sort />
+      </Box>
+
       <YurtsList currentData={currentData} />
       <Box sx={{ display: "flex", justifyContent: "center", margin: "50px 0" }}>
         <Pagination count={count} page={page} onChange={handleChange} />

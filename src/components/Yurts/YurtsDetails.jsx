@@ -15,6 +15,8 @@ import {
 } from "../../store/yurts/yurtsActions";
 import EditModal from "../EditModal";
 import { ADMIN } from "../helpers/consts";
+import "../../index.css";
+
 const YurtsDetails = () => {
   const { yurts } = useSelector((state) => state.yurts);
   const { yurtDetails } = useSelector((state) => state.yurts);
@@ -65,6 +67,7 @@ const YurtsDetails = () => {
               height: "500px",
               border: "10px solid white",
             }}
+            className="img1"
             src={yurtDetails.image1}
             alt="image"
           />
@@ -133,7 +136,13 @@ const YurtsDetails = () => {
           <Box
             sx={{
               width: "35%",
-              height: "40vh",
+              height: {
+                xl: "40vh",
+                lg: "40vh",
+                md: "50vh",
+                sm: "60vh",
+                xs: "70vh",
+              },
               // border: "2px solid orange",
               boxShadow: "20px 20px 40px black",
               borderRadius: "20px",
@@ -150,8 +159,17 @@ const YurtsDetails = () => {
               </Typography>
               <Typography>{<StarIcon />} 4.81 </Typography>
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-              <Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: { xl: 20, lg: 15, md: 10, sm: 9, xs: 8 },
+                }}
+              >
                 Сервисный сбор OIMO Показать разбивку цены
               </Typography>
               <Typography>$10</Typography>
@@ -161,11 +179,12 @@ const YurtsDetails = () => {
                 borderTop: "2px solid gray",
                 width: "80%",
                 margin: "0 auto",
+                fontSize: { xl: 20, lg: 15, md: 10, sm: 9, xs: 8 },
               }}
             >
               Всего (без учета налога): ${result}
             </Typography>
-            {user != ADMIN ? (
+            {user !== ADMIN ? (
               <Button
                 color="secondary"
                 variant="contained"
@@ -174,11 +193,28 @@ const YurtsDetails = () => {
                 В корзину
               </Button>
             ) : (
-              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  gap: "10px",
+                  alignItems: "center",
+                  flexDirection: {
+                    xl: "row",
+                    lg: "row",
+                    md: "column",
+                    sm: "column",
+                    xs: "column",
+                  },
+                }}
+              >
                 <EditModal yurtDetails={yurtDetails} />
                 <Button
                   color="secondary"
                   variant="contained"
+                  sx={{
+                    fontSize: { xl: 14, lg: 10, md: 10, sm: 9, xs: 8 },
+                  }}
                   onClick={() => {
                     dispatch(deleteYurt(id));
                     navigate("/yurts");
