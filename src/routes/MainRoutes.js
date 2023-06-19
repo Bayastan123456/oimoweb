@@ -8,6 +8,7 @@ import YurtsDetails from "../components/Yurts/YurtsDetails";
 import RegistrationPage from "../components/Register";
 import AboutUs from "../pages/AboutUsPage";
 import EditModal from "../components/EditModal";
+import ContactPage from "../pages/ContactPage";
 import LoginPage from "../pages/LoginPage";
 import Admin from "../components/Admin";
 import { ADMIN } from "../components/helpers/consts";
@@ -47,6 +48,11 @@ const MainRoutes = () => {
       link: "/aboutUs",
       element: <AboutUs />,
       id: 8,
+    },
+    {
+      link: "/contacts",
+      element: <ContactPage />,
+      id: 6,
     },
   ];
   const PRIVATE_ROUTES = [
