@@ -16,22 +16,22 @@ export default function SimpleLGQuery() {
       sx={{
         backgroundImage: `url(${img})`,
         backgroundSize: "100%",
-        position: "absolute",
-        left: "0",
-        right: "0",
-        top: "64px",
-        bottom: "0",
+        height: "100vh",
+        // position: "absolute",
+        // left: "0",
+        // right: "0",
+        // top: "64px",
+        // bottom: "0",
         textAlign: "center",
       }}
     >
       <Typography
         variant="h3"
         sx={{
-          mt: "15%",
           fontSize: `125px`,
           fontFamily: "Arial",
           fontWeight: "700",
-          marginTop: "10%",
+          paddingTop: "10%",
         }}
       >
         404
