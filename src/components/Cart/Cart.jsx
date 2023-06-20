@@ -63,7 +63,7 @@ export default function Cart() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 550 }}
+      sx={{ width: "200px" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
