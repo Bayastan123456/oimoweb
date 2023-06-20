@@ -80,7 +80,7 @@ function Navbar() {
           }}
         >
           <img
-            style={{ width: "8%" }}
+            style={{ width: "8vw" }}
             src={image}
             alt="ll"
             onClick={() => navigate("/")}
