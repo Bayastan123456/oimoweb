@@ -223,6 +223,13 @@ const YurtsDetails = () => {
                 display: "flex",
                 justifyContent: "space-around",
                 alignItems: "center",
+                flexDirection: {
+                  xl: "row",
+                  lg: "row",
+                  md: "row",
+                  sm: "column",
+                  xs: "column",
+                },
               }}
             >
               <Button
