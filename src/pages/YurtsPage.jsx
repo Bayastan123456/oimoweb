@@ -89,7 +89,7 @@ const YurtsPage = () => {
           placeholder="Search"
         />
 
-        {/* <Sort setSelectedSort={setSelectedSort} /> */}
+        <Sort setSelectedSort={setSelectedSort} />
       </Box>
 
       <YurtsList currentData={currentData} />
