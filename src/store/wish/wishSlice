@@ -1,0 +1,15 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  wish: JSON.parse(localStorage.getItem("wish")),
+};
+
+export const wishSlice = createSlice({
+  name: "@wish",
+  initialState,
+  reducers: {
+    getWish(state, action) {
+      state.wish = action.payload;
+    },
+  },
+});

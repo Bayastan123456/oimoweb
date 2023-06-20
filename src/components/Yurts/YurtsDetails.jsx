@@ -45,6 +45,18 @@ const YurtsDetails = () => {
 
   const result = +yurtDetails.price * count + 10;
 
+  useEffect(() => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        yurts: [],
+        totalPrice: 0,
+      };
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(getCart(cart));
+  }, []);
+
   function addToCart(yurt) {
     let cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {

@@ -19,13 +19,27 @@ import Cart from "../Cart/Cart";
 import { ADMIN } from "../helpers/consts";
 import { useDispatch, useSelector } from "react-redux";
 import { authListener } from "../../store/auth/authAction";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { getCart } from "../../store/cart/cartSlice";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
+  const [flag, SetFlag] = React.useState(null);
 
+  React.useEffect(() => {
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if (!cart) {
+      cart = {
+        yurts: [],
+        totalPrice: 0,
+      };
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(getCart(cart));
+  }, []);
   const pages = [
     { path: "/yurts", title: "Юрты" },
     { path: "/contacts", title: "Контакты" },
@@ -150,7 +164,16 @@ function Navbar() {
               sx={{ marginLeft: "50px" }}
               onClick={() => navigate("/register")}
             />
-            <Cart />
+            {flag ? (
+              <Cart />
+            ) : (
+              <Button>
+                <ShoppingBasketIcon
+                  onClick={() => SetFlag(true)}
+                  sx={{ color: "black" }}
+                />
+              </Button>
+            )}
           </Box>
         </Toolbar>
       </Container>
