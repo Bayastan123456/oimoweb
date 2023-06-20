@@ -25,6 +25,7 @@ export default function Cart() {
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const dispatch = useDispatch();
   const { id } = useParams();
+  const { yurts, totalPrice } = useSelector((state) => state.cart.cart);
   // console.log(yurts);
   // console.log(totalPrice);
 
@@ -40,7 +41,6 @@ export default function Cart() {
     cart.totalPrice = calcTotalPrice(yurts);
     dispatch(getCart(cart));
   }, []);
-  const { yurts, totalPrice } = useSelector((state) => state.cart.cart);
 
   function deleteCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));

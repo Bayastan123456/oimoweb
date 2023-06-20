@@ -15,6 +15,8 @@ import {
 } from "../../store/yurts/yurtsActions";
 import EditModal from "../EditModal";
 import { ADMIN } from "../helpers/consts";
+import "../../index.css";
+
 import { getCart } from "../../store/cart/cartSlice";
 import { calcTotalPrice } from "../helpers/functions";
 const YurtsDetails = () => {
@@ -108,6 +110,7 @@ const YurtsDetails = () => {
               height: "500px",
               border: "10px solid white",
             }}
+            className="img1"
             src={yurtDetails.image1}
             alt="image"
           />
@@ -176,7 +179,13 @@ const YurtsDetails = () => {
           <Box
             sx={{
               width: "35%",
-              height: "40vh",
+              height: {
+                xl: "40vh",
+                lg: "40vh",
+                md: "50vh",
+                sm: "60vh",
+                xs: "70vh",
+              },
               // border: "2px solid orange",
               boxShadow: "20px 20px 40px black",
               borderRadius: "20px",
@@ -193,21 +202,32 @@ const YurtsDetails = () => {
               </Typography>
               <Typography>{<StarIcon />} 4.81 </Typography>
             </Box>
-            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
-              <Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: { xl: 20, lg: 15, md: 10, sm: 9, xs: 8 },
+                }}
+              >
                 Сервисный сбор OIMO Показать разбивку цены
               </Typography>
               <Typography>$10</Typography>
             </Box>
             <Box
               sx={{
-                width: "10vw",
+                // width: "10vw",
                 display: "flex",
                 justifyContent: "space-around",
                 alignItems: "center",
               }}
             >
               <Button
+                variant="contained"
+                color="error"
                 onClick={() =>
                   count > 1 ? setCount((prev) => prev - 1) : setCount(1)
                 }
@@ -215,8 +235,9 @@ const YurtsDetails = () => {
                 -
               </Button>
               <Typography>{count}</Typography>
-              <Button onClick={getCount}>+</Button>
-              <Typography>ночей</Typography>
+              <Button onClick={getCount} variant="contained" color="success">
+                +
+              </Button>
             </Box>
 
             <Typography
@@ -224,25 +245,46 @@ const YurtsDetails = () => {
                 borderTop: "2px solid gray",
                 width: "80%",
                 margin: "0 auto",
+                fontSize: { xl: 20, lg: 15, md: 10, sm: 9, xs: 8 },
               }}
             >
               Всего (без учета налога): ${result}
             </Typography>
-            {user != ADMIN ? (
+            {user !== ADMIN ? (
               <Button
                 color="secondary"
                 variant="contained"
-                sx={{ width: "250px", margin: "0 auto" }}
+                sx={{
+                  margin: "0 auto",
+                  fontSize: { xl: 14, lg: 10, md: 10, sm: 9, xs: 8 },
+                }}
                 onClick={() => addToCart(yurtDetails)}
               >
                 В корзину
               </Button>
             ) : (
-              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  gap: "10px",
+                  alignItems: "center",
+                  flexDirection: {
+                    xl: "row",
+                    lg: "row",
+                    md: "column",
+                    sm: "column",
+                    xs: "column",
+                  },
+                }}
+              >
                 <EditModal yurtDetails={yurtDetails} />
                 <Button
                   color="secondary"
                   variant="contained"
+                  sx={{
+                    fontSize: { xl: 14, lg: 10, md: 10, sm: 9, xs: 8 },
+                  }}
                   onClick={() => {
                     dispatch(deleteYurt(id));
                     navigate("/yurts");
