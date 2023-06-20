@@ -40,7 +40,7 @@ export default function Cart() {
     }
     cart.totalPrice = calcTotalPrice(yurts);
     dispatch(getCart(cart));
-  }, [state]);
+  }, []);
 
   function deleteCart(id) {
     let cart = JSON.parse(localStorage.getItem("cart"));
