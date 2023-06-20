@@ -63,13 +63,19 @@ export default function Cart() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 550 }}
+      sx={{
+        width: "400px",
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       {yurts?.map((elem) => (
-        <List sx={{ width: "100%" }}>
+        <List sx={{}}>
           <Card sx={{ maxWidth: 245, borderRadius: "20px" }}>
             <CardActionArea>
               <Box>
