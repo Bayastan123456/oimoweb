@@ -207,13 +207,15 @@ const YurtsDetails = () => {
             </Box>
             <Box
               sx={{
-                width: "10vw",
+                // width: "10vw",
                 display: "flex",
                 justifyContent: "space-around",
                 alignItems: "center",
               }}
             >
               <Button
+                variant="contained"
+                color="error"
                 onClick={() =>
                   count > 1 ? setCount((prev) => prev - 1) : setCount(1)
                 }
@@ -221,8 +223,9 @@ const YurtsDetails = () => {
                 -
               </Button>
               <Typography>{count}</Typography>
-              <Button onClick={getCount}>+</Button>
-              <Typography>ночей</Typography>
+              <Button onClick={getCount} variant="contained" color="success">
+                +
+              </Button>
             </Box>
 
             <Typography
@@ -239,7 +242,10 @@ const YurtsDetails = () => {
               <Button
                 color="secondary"
                 variant="contained"
-                sx={{ width: "250px", margin: "0 auto" }}
+                sx={{
+                  margin: "0 auto",
+                  fontSize: { xl: 14, lg: 10, md: 10, sm: 9, xs: 8 },
+                }}
                 onClick={() => addToCart(yurtDetails)}
               >
                 В корзину

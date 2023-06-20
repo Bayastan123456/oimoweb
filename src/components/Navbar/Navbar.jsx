@@ -144,13 +144,22 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ width: "10%", color: "black" }}>
-            <PersonOutlineIcon
-              sx={{ marginLeft: "50px" }}
-              onClick={() => navigate("/register")}
-            />
-            <Cart />
+          <Box sx={{}}>
+            <Box
+              sx={{
+                color: "black",
+                display: "flex",
+                width: "10vw",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <PersonOutlineIcon
+                sx={{}}
+                onClick={() => navigate("/register")}
+              />
+              <Cart />
+            </Box>
           </Box>
         </Toolbar>
       </Container>

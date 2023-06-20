@@ -1,31 +1,22 @@
 import { Box, Input, InputAdornment } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { getYurts } from "../store/yurts/yurtsActions";
 
 const Search = () => {
   const { yurts } = useSelector((state) => state.yurts);
-
-  const [products, setProducts] = useState(yurts);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getYurts());
+  }, []);
   const [search, setSearch] = useState("");
 
-  function searchYurt(text, list) {
-    if (!text) {
-      return list;
-    } else {
-      list.filter(({ city }) => {
-        return city.toLowerCase().includes(text.toLowerCase());
-      });
-    }
-  }
+  console.log(search);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const searchedYurta = searchYurt(search, yurts);
-      setProducts(searchedYurta);
-    }, 300);
+  const filterValue = yurts.filter((yurt) => {
+    return yurt.city.toLowerCase().includes(search.toLocaleLowerCase());
   });
-
   return (
     <>
       <Input
