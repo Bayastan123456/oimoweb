@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import YurtsList from "../components/Yurts/YurtsList";
-import { Box, Input, Pagination, TextField, Typography } from "@mui/material";
+import { Box, Input, Pagination } from "@mui/material";
 import Sort from "../components/Sort";
 import { useDispatch, useSelector } from "react-redux";
 import { getYurts } from "../store/yurts/yurtsActions";
@@ -10,7 +10,7 @@ const YurtsPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getYurts());
-  }, []);
+  }, [dispatch]);
 
   const [search, setSearch] = useState("");
   const [selectedSort, setSelectedSort] = useState(null);

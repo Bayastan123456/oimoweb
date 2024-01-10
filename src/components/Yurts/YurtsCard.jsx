@@ -1,6 +1,4 @@
 import {
-  Box,
-  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -14,7 +12,7 @@ import "swiper/swiper.min.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Mousewheel, Keyboard } from "swiper";
-import { Favorite, FavoriteBorder, Label } from "@mui/icons-material";
+import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 
 const YurtsCard = ({ item }) => {

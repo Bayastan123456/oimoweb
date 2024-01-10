@@ -18,7 +18,7 @@ const OnlyThree = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getYurts());
-  }, []);
+  }, [dispatch]);
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const navigate = useNavigate();

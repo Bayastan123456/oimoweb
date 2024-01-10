@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { API } from "../../components/helpers/consts";
-import { oneYurt, setYurts } from "./yurtsSlice";
+import { setYurts } from "./yurtsSlice";
 import axios from "axios";
 
 export const getYurts = createAsyncThunk(

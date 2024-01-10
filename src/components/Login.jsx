@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { handleLogin } from "../store/auth/authAction";
 import { setEmail, setPassword } from "../store/auth/authSlice";
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
 
 const Login = () => {
   const { email, password, emailError, passwordError } = useSelector(

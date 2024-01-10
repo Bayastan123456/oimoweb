@@ -10,7 +10,7 @@ const YurtsList = ({ currentData }) => {
 
   useEffect(() => {
     dispatch(getYurts());
-  }, []);
+  }, [dispatch]);
 
   console.log(currentData);
   return (
