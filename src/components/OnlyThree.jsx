@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const OnlyThree = () => {
   const { yurts } = useSelector((state) => state.yurts);
+  console.log(yurts);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getYurts());
