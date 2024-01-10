@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -9,7 +9,6 @@ import "swiper/css/effect-fade";
 
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper";
 import { Box, Button, CardMedia, Typography } from "@mui/material";
-import YurtsList from "../components/Yurts/YurtsList";
 import WavesIcon from "@mui/icons-material/Waves";
 import PetsIcon from "@mui/icons-material/Pets";
 import LocalFloristIcon from "@mui/icons-material/LocalFlorist";

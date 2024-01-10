@@ -14,9 +14,7 @@ const Search = () => {
 
   console.log(search);
 
-  const filterValue = yurts.filter((yurt) => {
-    return yurt.city.toLowerCase().includes(search.toLocaleLowerCase());
-  });
+
   return (
     <>
       <Input
@@ -34,9 +32,6 @@ const Search = () => {
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search"
       />
-      {/* {yurts.map((yurta, index) => {
-        return <li key={index}>{yurta.city}</li>;
-      })} */}
     </>
   );
 };

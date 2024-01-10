@@ -7,10 +7,8 @@ import AdminPage from "../pages/AdminPage";
 import YurtsDetails from "../components/Yurts/YurtsDetails";
 import RegistrationPage from "../components/Register";
 import AboutUs from "../pages/AboutUsPage";
-import EditModal from "../components/EditModal";
 import ContactPage from "../pages/ContactPage";
 import LoginPage from "../pages/LoginPage";
-import Admin from "../components/Admin";
 import { ADMIN } from "../components/helpers/consts";
 import { useSelector } from "react-redux";
 
@@ -59,7 +57,7 @@ const MainRoutes = () => {
     {
       link: "/admin",
       element: <AdminPage />,
-      key: 1,
+      id: 7,
     },
   ];
   return (

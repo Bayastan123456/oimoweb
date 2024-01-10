@@ -1,14 +1,9 @@
 import React from "react";
-import { Button, useMediaQuery, Typography, Box } from "@mui/material";
+import { Button, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import img from "./img/main.png";
 
 export default function SimpleLGQuery() {
-  const SXs = useMediaQuery("(max-width: 370px");
-  const xs = useMediaQuery("(max-width: 600px)");
-  const cm = useMediaQuery("(max-width: 900px)");
-  const md = useMediaQuery("(max-width: 1200px)");
-
   const navigate = useNavigate();
 
   return (

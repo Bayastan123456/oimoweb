@@ -7,9 +7,7 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +20,7 @@ import { authListener } from "../../store/auth/authAction";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { getCart } from "../../store/cart/cartSlice";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+// const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Navbar() {
   const { user } = useSelector((state) => state.auth);
@@ -67,7 +65,7 @@ function Navbar() {
 
   React.useEffect(() => {
     dispatch(authListener());
-  }, []);
+  }, [dispatch]);
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">

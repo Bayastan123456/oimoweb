@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { Box, Typography } from "@mui/material";
 
 const filtr = [
   { label: "По имени", value: "name" },
