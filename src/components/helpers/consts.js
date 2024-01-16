@@ -1,3 +1,3 @@
-export const API = "http://192.168.1.7:8000/yurts";
+export const API = "https://oimo-web.netlify.app/db.json";
 
 export const ADMIN = "admin@admin.com";
