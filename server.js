@@ -1,8 +1,16 @@
-const express = require('express');
-const app = express();
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
+// import jsonServer from "json-server"
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('./db.json');
+const middlewares = jsonServer.defaults({
+  static: './build'
+});
+const PORT = process.env.PORT || 8000;
+server.use(middlewares);
+server.use(jsonServer.rewriter({
+  '/api/*': '/$1',
+}))
+server.use(router);
+server.listen(PORT, () => {
+  console.log('Server is running');
 });

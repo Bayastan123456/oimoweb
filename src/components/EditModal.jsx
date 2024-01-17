@@ -2,7 +2,6 @@ import { Box, Button, Modal, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { editYurt, getOneYurt } from "../store/yurts/yurtsActions";
-import { useNavigate } from "react-router";
 
 const style = {
   position: "absolute",
@@ -43,7 +42,6 @@ const EditModal = ({ yurtDetails }) => {
   }, [yurtDetails]);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const saveEditedYurts = () => {
     if (

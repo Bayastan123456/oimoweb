@@ -2,7 +2,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
   app.use(
-    '/api',  // Adjust the path as needed
+    '../db.json',  // путь к вашему ресурсу
     createProxyMiddleware({
       target: 'https://oimo-web.netlify.app',
       changeOrigin: true,
